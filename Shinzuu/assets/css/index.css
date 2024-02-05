@@ -215,12 +215,13 @@ body {
 @media (max-width: 991px) {
   .mobile-nav-toggle {
     display: block;
+    color: #000; /* Change this to the color you want */
+    z-index: 9999; /* Set a high z-index value */
   }
-
   .navbar ul {
-    /* Remove the display: none; property */
   }
 }
+
 
 .navbar-mobile {
   position: fixed;
