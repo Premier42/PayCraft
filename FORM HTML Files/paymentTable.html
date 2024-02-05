@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <title>Payment Table</title>
+        <!-- Required meta tags -->
+        <meta charset="utf-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1, shrink-to-fit=no"
+        />
+
+        <!-- Bootstrap CSS v5.2.1 -->
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+            crossorigin="anonymous"
+        />
+
+        <link rel="stylesheet" href="Payment_table.css">
+    <style>
+        /* Hide transaction history initially */
+        #transactionHistory {
+            display: none;
+        }
+    </style>
+    </head>
+
+    <body>
+        <header>
+            <!-- place navbar here -->
+        </header>
+        <main>
+            <form id="paymentForm">
+                <h2 class="text-center">Payment History</h2>
+                <div class="row mb-3">
+                    <div class="col">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Employee Name</th>
+                                    <th>Payment Per Worker</th>
+                                    <th>Hours Worked</th>
+                                    <th>Bonus</th>
+                                    <th>Deduction</th>
+                                    <th>Total Payment</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><input type="text" id="employeeName" name="employeeName" class="form-control" placeholder="Employee Name"></td>
+                                    <td>$15.00</td>
+                                    <td><input type="text" id="hoursWorked" name="hoursWorked" class="form-control" placeholder="Hours Worked"></td>
+                                    <td><input type="text" id="bonus" name="bonus" class="form-control" placeholder="Bonus"></td>
+                                    <td><input type="text" id="deduction" name="deduction" class="form-control deduction" placeholder="Deduction"></td>
+                                    <td class="total"><input type="text" id="totalPayment" name="totalPayment" class="form-control" placeholder="Total Payment"></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="text" class="form-control" placeholder="Employee Name"></td>
+                                    <td>$35.00</td>
+                                    <td><input type="text" class="form-control" placeholder="Hours Worked"></td>
+                                    <td><input type="text" class="form-control" placeholder="Bonus"></td>
+                                    <td><input type="text" class="form-control deduction" placeholder="Deduction"></td>
+                                    <td class="total"><input type="text" class="form-control" placeholder="Total Payment"></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="text" class="form-control" placeholder="Employee Name"></td>
+                                    <td>$50.00</td>
+                                    <td><input type="text" class="form-control" placeholder="Hours Worked"></td>
+                                    <td><input type="text" class="form-control" placeholder="Bonus"></td>
+                                    <td><input type="text" class="form-control deduction" placeholder="Deduction"></td>
+                                    <td class="total"><input type="text" class="form-control" placeholder="Total Payment"></td>
+                                </tr>
+                                <!-- Add more rows as needed -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+    
+                <div class="col-md-4">
+                    <div class="mb-3">
+                        <label for="moneyTransmission">Money Transmission:</label>
+                        <select id="moneyTransmission" name="moneyTransmission" required class="form-select">
+                            <option value="" disabled selected>Choose an option</option>
+                            <optgroup label="Card">
+                                <option value="masterCard">Master Card</option>
+                                <option value="atmCard">ATM Card</option>
+                                <option value="creditCard">Credit Card</option>
+                                <option value="debitCard">Debit Card</option>
+                            </optgroup>
+                            <optgroup label="Bank">
+                                <option value="IBBL">Islami Bank Bangladesh Ltd. (IBBL)</option>
+                                <option value="DBBL">Dutch Bangla Bank Ltd. (DBBL)</option>
+                                <option value="SBL">Sonali Bank Ltd. (SBL)</option>
+                                <option value="CityBank">The City Bank Ltd</option>
+                                <option value="ABBank">AB Bank Ltd</option>
+                            </optgroup>
+                            <optgroup label="Cash App">
+                                <option value="bKash">Bkash</option>
+                                <option value="Nogod">Nogod</option>
+                                <option value="Rocket">Rocket</option>
+                            </optgroup>
+                        </select>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit Payment</button>
+                <div class="form-group">
+                    <label for="totalIncludingTax">Total Including Tax:</label>
+                    <input type="text" id="totalIncludingTax" name="totalIncludingTax" readonly>
+                </div>
+                <button type="submit" class="btn btn-primary">Proceed to Pay</button>
+                <p id="paymentStatus"></p>
+    
+                <h2 class="text-center">Transaction History</h2>
+                <table id="transactionHistory" class="table">
+                    <thead>
+                        <tr>
+                            <th>Transaction ID</th>
+                            <th>Total Amount</th>
+                            <th>Date of Pay</th>
+                            <th>Details</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Sample data, replace with dynamic data from your system -->
+                        <tr>
+                            <td>123456</td>
+                            <td>$1000.00</td>
+                            <td>2024-02-01</td>
+                            <td><a href="#">See details</a></td>
+                        </tr>
+                        <tr>
+                            <td>789012</td>
+                            <td>$500.00</td>
+                            <td>2024-02-05</td>
+                            <td><a href="#">See details</a></td>
+                        </tr>
+                        <!-- Add more rows as needed -->
+                    </tbody>
+                </table>
+            </form>
+        </main>
+        <footer>
+            <!-- place footer here -->
+        </footer>
+        <!-- Bootstrap JavaScript Libraries -->
+        <script
+            src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+            integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+            crossorigin="anonymous"
+        ></script>
+
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+            integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+            crossorigin="anonymous"
+        ></script>
+        
+        <script src="payment__table.js"></script>
+
+    </body>
+</html>
