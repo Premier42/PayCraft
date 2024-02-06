@@ -23,7 +23,7 @@ git clone https://github.com/Premier42/PayCraft.git
 ```
 Navigate to the project directory:
 ```
-cd Automated-Payroll-System 
+cd PayCraft 
 ```
 On Windows:
 
@@ -46,6 +46,6 @@ Open index.html in your web browser or host it on a web server to access the Aut
 - Intuitive User Interface for streamlined payroll management
 - Responsive Design for seamless user experience on various devices
 - Real-time Previews of payroll data for quick insights
-- Efficient Fullscreen Mode for focused data analysis
+- Efficient Full screen Mode for focused data analysis
 - Tax Payment Integration for automated and accurate tax processing
 - Cross-platform Compatibility for accessibility across different operating systems
