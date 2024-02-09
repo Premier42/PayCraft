@@ -1,0 +1,1 @@
+home - signup/login - overview - Add payment info - create company / join team - add further information about employment - make payment - see past payment - see detailed payment 
