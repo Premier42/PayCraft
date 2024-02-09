@@ -1,0 +1,197 @@
+body {
+    font-family: "Open Sans", sans-serif;
+    color: #444444;
+    background-color: #f8f9fa;
+}
+
+.container {
+    max-width: 960px;
+}
+
+#main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+#login,
+#signup { /* Apply styles to both login and signup sections */
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    padding: 60px; /* Adjusted padding for a larger login and signup section */
+    max-width: 400px;
+}
+
+#login h1,
+#signup .title { /* Apply styles to both login and signup titles */
+    font-size: 32px; /* Adjusted font size for titles */
+    margin-bottom: 30px;
+    color: #5f687b;
+}
+
+#login form,
+#signup form { /* Apply styles to both login and signup forms */
+    margin: 0;
+}
+
+#login form label,
+#signup form label { /* Apply styles to both login and signup form labels */
+    font-size: 12px; /* Adjusted font size for form labels */
+    color: #6a7489;
+}
+
+#login form input,
+#signup form input,
+#login form button,
+#signup form button { /* Apply styles to both login and signup form inputs and buttons */
+    margin-bottom: 20px; /* Adjusted margin for form inputs and buttons */
+    padding: 10px; /* Adjusted padding for form inputs and buttons */
+    font-size: 14px; /* Adjusted font size for form inputs and buttons */
+    
+}
+#login form input,
+#signup form input {
+    width: 90%;
+}
+
+#login button,
+#signup button { /* Apply styles to both login and signup buttons */
+    background-color: #16df7e;
+    color: #fff;
+    border: 1px solid #16df7e;
+}
+
+#login button:hover,
+#signup button:hover { /* Apply styles to both login and signup button hover states */
+    background-color: #14c871;
+    border: 1px solid #14c871;
+}
+
+#login p,
+#signup p { /* Apply styles to both login and signup paragraphs */
+    font-size: 18px; /* Adjusted font size for paragraphs */
+    color: #6a7489;
+}
+
+#login p a,
+#signup .login-link { /* Apply styles to both login and signup links */
+    color: #206bfb;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+#login p a:hover,
+#signup .login-link:hover { /* Apply styles to both login and signup link hover states */
+    text-decoration: underline;
+}
+
+/* Mobile Navigation */
+.mobile-nav-toggle {
+    color: #5f687b;
+    font-size: 28px;
+    cursor: pointer;
+    display: none;
+    line-height: 0;
+    transition: 0.5s;
+}
+
+.mobile-nav-toggle.bi-x {
+    color: #fff;
+
+}
+@media (max-width: 991px) {
+    .mobile-nav-toggle {
+      display: block;
+    }
+  
+    .navbar ul {
+      display: none;
+    }
+  }
+  
+  .navbar-mobile {
+    position: fixed;
+    overflow: hidden;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background: rgba(73, 80, 94, 0.9);
+    transition: 0.3s;
+    z-index: 999;
+  }
+  
+  .navbar-mobile .mobile-nav-toggle {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+  }
+  
+  .navbar-mobile ul {
+    display: block;
+    position: absolute;
+    top: 55px;
+    right: 15px;
+    bottom: 15px;
+    left: 15px;
+    padding: 10px 0;
+    border-radius: 10px;
+    background-color: #fff;
+    overflow-y: auto;
+    transition: 0.3s;
+  }
+  
+  .navbar-mobile a,
+  .navbar-mobile a:focus {
+    padding: 10px 20px;
+    font-size: 15px;
+    color: #5f687b;
+  }
+  
+  .navbar-mobile a:hover,
+  .navbar-mobile .active,
+  .navbar-mobile li:hover>a {
+    color: #16df7e;
+  }
+  
+  .navbar-mobile .getstarted,
+  .navbar-mobile .getstarted:focus {
+    margin: 15px;
+    padding: 10px 15px;
+  }
+  
+  .navbar-mobile .dropdown ul {
+    position: static;
+    display: none;
+    margin: 10px 20px;
+    padding: 10px 0;
+    z-index: 99;
+    opacity: 1;
+    visibility: visible;
+    background: #fff;
+    box-shadow: 0px 0px 30px rgba(127, 137, 161, 0.25);
+  }
+  
+  .navbar-mobile .dropdown ul li {
+    min-width: 200px;
+  }
+  
+  .navbar-mobile .dropdown ul a {
+    padding: 10px 20px;
+  }
+  
+  .navbar-mobile .dropdown ul a i {
+    font-size: 12px;
+  }
+  
+  .navbar-mobile .dropdown ul a:hover,
+  .navbar-mobile .dropdown ul .active:hover,
+  .navbar-mobile .dropdown ul li:hover>a {
+    color: #16df7e;
+  }
+  
+  .navbar-mobile .dropdown>.dropdown-active {
+    display: block;
+  }

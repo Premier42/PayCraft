@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <title>Add Payment</title>
+        <!-- Required meta tags -->
+        <meta charset="utf-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1, shrink-to-fit=no"
+        />
+
+        <!-- Bootstrap CSS v5.2.1 -->
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+            crossorigin="anonymous"
+        />
+
+          <!--CSS link -->
+          <link rel="stylesheet" href="/assets/css/add_payment.css">
+    </head>
+
+    <body>
+        <header>
+            <!-- place navbar here -->
+        </header>
+
+        
+        <main>
+             
+            <div class="container mt-5">
+                <div class="row justify-content-center">
+                    <div class="col-lg-6">
+                        <div class="payment-form">
+                            <h2 class="text-center mb-4"> Add Payment </h2>
+                            <form id="paymentForm" onsubmit="return handlePayment()">
+                                <!-- Contact Information -->
+    
+    
+                                <!-- Payment Options -->
+                                <div class="mb-3">
+                                    <label class="form-label">Payment Method :</label><br>
+                                    <div class="btn-group" role="group" aria-label="Payment Options">
+                                        <button type="button" class="btn btn-outline-primary" data-payment-type="card"><img
+                                                src="/assets/img/logo/card_png.png" alt="card" id="logo"></button>
+                                        <button type="button" class="btn btn-outline-primary" data-payment-type="bank"><img
+                                                src="/assets/img/logo/bank_png.png" alt="bank" id="logo"></button>
+                                        <button type="button" class="btn btn-outline-primary"
+                                            data-payment-type="cashApp"><img src="/assets/img/logo/cash_app_png.png" alt="cash"
+                                                id="logo"></button>
+                                    </div>
+                                </div>
+    
+                                <!-- Card Information -->
+                                <div id="cardDetails" class="mb-3" style="display: none;">
+                                    <!-- Card details input fields go here -->
+    
+                                    <label class="form-label">Card's name :</label>
+                                    <select id="paymentMethod" class="form-select" name="paymentMethod">
+                                        <option value="card">Card</option>
+                                        <option value="masterCard">MasterCard</option>
+                                        <option value="atm card">ATM Card</option>
+                                        <option value="Debit Card">Debit Card</option>
+                                        <option value="Credit Card">Credit Card</option>
+                                        <!-- Add other payment options as needed -->
+                                    </select>
+    
+                                    <label for="cardNumber" class="form-label">Card Number:</label>
+                                    <input type="text" class="form-control" id="cardNumber" name="cardNumber"
+                                        placeholder="Card Number">
+    
+                                    <!-- <label for="cardHolderName" class="form-label">Cardholder Name:</label>
+                                <input type="text" class="form-control" id="cardHolderName" name="cardHolderName"
+                                    placeholder="Cardholder Name"> -->
+    
+    
+                                    <label for="postal code" class="form-label">Postal Code:</label>
+                                    <input type="text" class="form-control" id="Postal Code" name="Postal Code"
+                                        placeholder="Postal Code">
+    
+                                </div>
+    
+                                <!-- Bank Information -->
+                                <div id="bankDetails" class="mb-3" style="display: none;">
+                                    <!-- Bank details input fields go here -->
+    
+                                    <label class="form-label">Bank's name :</label>
+                                    <select id="paymentMethod" class="form-select" name="paymentMethod">
+                                        <option value="bank">Bank</option>
+                                        <option value="Islami Bank Bangladesh Ltd. (IBBL)">Islami Bank Bangladesh Ltd.
+                                            (IBBL)</option>
+                                        <option value=" Dutch Bangla Bank Ltd. (DBBL)"> Dutch Bangla Bank Ltd. (DBBL)
+                                        </option>
+                                        <option value="Sonali Bank Ltd. (SBL)">Sonali Bank Ltd. (SBL)</option>
+                                        <option value="The City Bank Ltd">The City Bank Ltd</option>
+                                        <option value="AB Bank Ltd.">AB Bank Ltd</option>
+                                        <!-- Add other payment options as needed -->
+                                    </select>
+    
+                                    <label for="bankAccount" class="form-label">Bank Account Number:</label>
+                                    <input type="text" class="form-control" id="bankAccount" name="bankAccount"
+                                        placeholder="Bank Account Number">
+    
+    
+                                </div>
+    
+                                <!-- Cash App Information -->
+                                <div id="cashAppDetails" class="mb-3" style="display: none;">
+                                    <label class="form-label">Cash App name :</label>
+                                    <br>
+                                    <div class="btn-group" role="group" aria-label="Cash App Options">
+                                        <button type="button" class="btn btn-outline-primary"
+                                            data-cashapp-type="bkash"><img src="/assets/img/logo/bkash_png.png" alt="bkash" id ="logo"></button>
+                                        <button type="button" class="btn btn-outline-primary" data-cashapp-type="nogad"><img
+                                                src="/assets/img/logo/nogad_png.png" alt="nogad" id="logo"></button>
+                                        <button type="button" class="btn btn-outline-primary"
+                                            data-cashapp-type="rocket"><img src="/assets/img/logo/rocket_png.png" alt="rocket" id ="logo"></button>
+    
+                                    </div>
+                                    <br><br>
+                                    <label for="bkashUserNumber" class="form-label" style="display: none;">Bkash User
+                                        Number:</label>
+                                    <input type="text" class="form-control" id="bkashUserNumber" name="bkashUserNumber"
+                                        placeholder="Bkash User Number" style="display: none;">
+    
+                                    <label for="nogadUserNumber" class="form-label" style="display: none;">Nogad User
+                                        Number:</label>
+                                    <input type="text" class="form-control" id="nogadUserNumber" name="nogadUserNumber"
+                                        placeholder="Nogad User Number" style="display: none;">
+    
+                                    <label for="rocketUserNumber" class="form-label" style="display: none;">Rocket User
+                                        Number:</label>
+                                    <input type="text" class="form-control" id="rocketUserNumber" name="rocketUserNumber"
+                                        placeholder="Rocket User Number" style="display: none;">
+                                </div>
+    
+    
+    
+                                <!-- Billing Address -->
+                                <div class="mb-3">
+                                    <!-- Billing address input fields go here -->
+                                </div>
+    
+                                <!-- Security Checkbox -->
+                                <div class="mb-3 form-check">
+                                    <input type="checkbox" class="form-check-input" id="securityCheckbox"
+                                        name="securityCheckbox">
+                                    <label class="form-check-label" for="securityCheckbox">Agree with Terms of Service
+                                    </label>
+                                </div>
+    
+                                <!-- Submit Button -->
+    
+    
+                                <button type="submit" class="btn btn-primary">Comfirm and pay</button>
+    
+                                <!-- Loading Indicator -->
+                                <div class="loading-indicator text-center mt-3">
+                                    <div class="spinner-border text-primary" role="status">
+                                        <span class="visually-hidden">Loading...</span>
+                                    </div>
+                                    <p class="mt-2">Processing payment...</p>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>  
+
+        </main>
+        
+        <footer>
+            <!-- place footer here -->
+        </footer>
+        <!-- JavaScript-->
+
+      
+        <script src="/assets/js/add_payment.js"></script>
+    
+
+
+        <!-- Bootstrap JavaScript Libraries -->
+        <script
+            src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+            integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+            crossorigin="anonymous"
+        ></script>
+
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+            integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+            crossorigin="anonymous"
+        ></script>
+    </body>
+</html>
