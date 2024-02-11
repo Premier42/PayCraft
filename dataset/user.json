@@ -1,0 +1,23 @@
+[
+    {
+        "name": "Admin",
+        "password": "admin",
+        "email": "admin@mod.com",
+        "nid": "000",
+        "phoneNumber": "000"
+    },
+    {
+        "name": "John Doe",
+        "password": "examplepassword",
+        "email": "john@example.com",
+        "nid": "1234567890",
+        "phoneNumber": "1234567890"
+    },
+    {
+        "name": "Jane Smith",
+        "password": "anotherpassword",
+        "email": "jane@example.com",
+        "nid": "0987654321",
+        "phoneNumber": "0987654321"
+    }
+]
