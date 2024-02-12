@@ -1,3 +1,4 @@
+//author rimjhim
 document.addEventListener('DOMContentLoaded', function () {
     // Get the form element
     var form = document.getElementById('employeeDetailsForm');

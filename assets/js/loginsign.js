@@ -1,75 +1,70 @@
-document.getElementById("loginButton").addEventListener("click", performLogin);
+// author shinzuu
+const jsonFilePath = './dataset/user.json';
 
-function performLogin() {
-    var email = document.getElementById("loginEmail").value;
-    var password = document.getElementById("password").value;
+// sign up script
+document.getElementById("signupForm").addEventListener("submit", function(event){
+    event.preventDefault(); // Prevents the form from submitting normally
+    
+    // Get form data
+    const name = document.getElementById("name").value;
+    const password = document.getElementById("password").value;
+    const confirmPassword = document.getElementById("confirmPassword").value;
+    const email = document.getElementById("email").value;
+    const nid = document.getElementById("nid").value;
+    const phoneNumber = document.getElementById("phoneNumber").value;
+    
+    // Check if password and confirm password match
+    if (password !== confirmPassword) {
+        alert("Password and confirm password do not match.");
+        return;
+    }
 
-    // Perform login logic here
+    // Read existing users from localStorage
+    let users = localStorage.getItem('users');
+    users = users ? JSON.parse(users) : [];
 
-    // Example: Display success message
-    alert("Login successful");
-}
-// Get the form element
-const signupForm = document.querySelector("#signup form");
+    // Check if email already exists
+    const existingEmails = users.map(user => user.email);
+    if (existingEmails.includes(email)) {
+        alert("Account already exists with this email. Please sign in instead.");
+        return;
+    }
 
-// Add submit event listener
-signupForm.addEventListener("submit", (event) => {
-  event.preventDefault(); // Prevent form from submitting
+    // Add new user data
+    const newUser = {
+        name: name,
+        password: password,
+        email: email,
+        nid: nid,
+        phoneNumber: phoneNumber
+    };
+    users.push(newUser);
 
-  // Get input values
-  const name = document.querySelector("#name").value;
-  const password = document.querySelector("#password").value;
-  const confirmPassword = document.querySelector("#confirmPassword").value;
-  const email = document.querySelector("#email").value;
-  const nid = document.querySelector("#nid").value;
-  const phoneNumber = document.querySelector("#phoneNumber").value;
+    // Save updated users back to localStorage
+    localStorage.setItem('users', JSON.stringify(users));
 
-  // Validate input values
-  if (name.trim() === "") {
-    // Display error message for name field
-    document.querySelector(".input-field:nth-child(1) .error").innerHTML =
-      "Please enter your name";
-  } else {
-    document.querySelector(".input-field:nth-child(1) .error").innerHTML = "";
-  }
+    // Trigger download of the updated JSON file
+    downloadUsersJson(users);
 
-  if (password.trim() === "") {
-    // Display error message for password field
-    document.querySelector(".input-field:nth-child(2) .error").innerHTML =
-      "Please create a password";
-  } else if (confirmPassword.trim() === "") {
-    // Display error message for confirmPassword field
-    document.querySelector(".input-field:nth-child(3) .error").innerHTML =
-      "Please confirm your password";
-  } else if (password !== confirmPassword) {
-    document.querySelector(".input-field:nth-child(3) .error").innerHTML =
-      "Passwords do not match";
-  } else {
-    document.querySelector(".input-field:nth-child(2) .error").innerHTML = "";
-    document.querySelector(".input-field:nth-child(3) .error").innerHTML = "";
-  }
-
-  if (email.trim() === "") {
-    // Display error message for email field
-    document.querySelector(".input-field:nth-child(4) .error").innerHTML =
-      "Please enter your email";
-  } else {
-    document.querySelector(".input-field:nth-child(4) .error").innerHTML = "";
-  }
-
-  if (nid.trim() === "") {
-    // Display error message for nid field
-    document.querySelector(".input-field:nth-child(5) .error").innerHTML =
-      "Please enter your NID";
-  } else {
-    document.querySelector(".input-field:nth-child(5) .error").innerHTML = "";
-  }
-
-  if (phoneNumber.trim() === "") {
-    // Display error message for phoneNumber field
-    document.querySelector(".input-field:nth-child(6) .error").innerHTML =
-      "Please enter your phone number";
-  } else {
-    document.querySelector(".input-field:nth-child(6) .error").innerHTML = "";
-  }
+    alert("Account created successfully!");
 });
+
+function downloadUsersJson(users) {
+    // Trigger download of the updated JSON file
+    const blob = new Blob([JSON.stringify(users)], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+
+    // Create a temporary link element
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'user.json'; // Set the desired filename
+    a.style.display = 'none'; // Hide the link
+    document.body.appendChild(a);
+
+    // Simulate a click on the link to trigger the download
+    a.click();
+
+    // Clean up
+    URL.revokeObjectURL(url);
+    a.remove();
+}

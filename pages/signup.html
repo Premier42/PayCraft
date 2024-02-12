@@ -27,11 +27,11 @@
             <section id="signup" class="d-flex align-items-center">
                 <div class="container">
                     <div class="row">
-                        <div class="col-lg-6 pt-5 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center">
+                        
                             <div class="forms">
                                 <div class="form signup">
                                     <h1 class="title">Signup</h1>
-                                    <form>
+                                    <form id="signupForm">
                                         <div class="input-field">
                                             <label for="name">Your Name</label>
                                             <input type="text" id="name" placeholder="Enter your name" required>
@@ -65,7 +65,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                    
                     </div>
                 </div>
             </section>
@@ -86,5 +86,7 @@
             integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
             crossorigin="anonymous"
         ></script>
+        <!-- defer to make sure that the script is executed after the HTML content has been parsed -->
+        <script src="/assets/js/loginsign.js" defer></script>
     </body>
 </html>

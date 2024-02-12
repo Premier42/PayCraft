@@ -1,3 +1,4 @@
+//author rimjhim
 document.addEventListener('DOMContentLoaded', function () {
     // Get the payment form
     var paymentForm = document.getElementById('paymentForm');

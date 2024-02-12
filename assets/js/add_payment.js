@@ -1,4 +1,4 @@
-
+//author sakib
 document.querySelectorAll('[data-payment-type]').forEach(function (button) {
     button.addEventListener('click', function () {
         var paymentType = this.getAttribute('data-payment-type');

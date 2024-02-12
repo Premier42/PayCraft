@@ -21,7 +21,7 @@ body {
     border-radius: 10px;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
     padding: 60px; /* Adjusted padding for a larger login and signup section */
-    max-width: 400px;
+    max-width: 600px;
 }
 
 #login h1,
@@ -29,6 +29,7 @@ body {
     font-size: 32px; /* Adjusted font size for titles */
     margin-bottom: 30px;
     color: #5f687b;
+    text-align: left;
 }
 
 #login form,
