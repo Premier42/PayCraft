@@ -1,5 +1,5 @@
 // author shinzuu
-const jsonFilePath = './dataset/user.json';
+const jsonFilePath = '/dataset/user.json';
 
 // sign up script
 document.getElementById("signupForm").addEventListener("submit", function(event){
