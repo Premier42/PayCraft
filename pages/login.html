@@ -30,17 +30,18 @@
                         <h1>Login</h1>
                         
                             <!-- Login form -->
-                            <form id="loginForm">
-                                <div class="mb-3">
-                                    <label for="email" class="form-label">Email</label>
-                                    <input type="email" class="form-control" id="loginEmail" name="loginEmail" placeholder="Enter email" required>
-                                </div>
-                                <div class="mb-3">
-                                    <label for="password" class="form-label">Password</label>
-                                    <input type="password" class="form-control" id="password" name="loginPassword" placeholder="Enter password" required>
-                                </div>
-                                <button type="button" class="btn btn-primary" onclick="performLogin()">Login</button>
-                            </form>
+                        <form id="loginForm">
+                            <div class="mb-3">
+                                <label for="loginEmail" class="form-label">Email</label>
+                                <input type="email" class="form-control" id="loginEmail" name="loginEmail" placeholder="Enter email" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="loginPassword" class="form-label">Password</label>
+                                <input type="password" class="form-control" id="loginPassword" name="loginPassword" placeholder="Enter password" required>
+                            </div>
+                            <button type="submit" class="btn btn-primary" id="loginbtn">Login</button>
+                        </form>
+
                             <!-- End of login form -->
                             <p>Create an account instead? <a href="/pages/signup.html">Sign Up</a></p>
                         
@@ -64,5 +65,6 @@
             integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
             crossorigin="anonymous"
         ></script>
+        <script src="/assets/js/login.js"></script>
     </body>
 </html>
