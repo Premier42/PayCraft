@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Automated Payroll System Overview</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+        }
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            background-color: #444;
+            overflow: hidden;
+        }
+        nav ul li {
+            float: left;
+        }
+        nav ul li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+        nav ul li a:hover {
+            background-color: #555;
+        }
+        .overview-container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .overview-container h1 {
+            text-align: center;
+            color: #333;
+        }
+        .overview-container ul {
+            list-style-type: none;
+            padding: 0;
+            color: #666;
+        }
+        .sub-menu {
+            display: none;
+            background-color: #444;
+            padding: 10px 0;
+        }
+        .sub-menu li {
+            float: none;
+            text-align: center;
+        }
+        .sub-menu li a {
+            display: block;
+            color: #fff;
+            padding: 10px;
+            text-decoration: none;
+        }
+        .sub-menu li a:hover {
+            background-color: #555;
+        }
+        .show-sub-menu {
+            display: block;
+        }
+    </style>
+    <script>
+        function toggleSubMenu() {
+            var subMenu = document.getElementById("subMenu");
+            subMenu.classList.toggle("show-sub-menu");
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <h1>PayCraft</h1>
+        <P>Easy Payment Solution</P>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="#" onclick="toggleSubMenu()">Overview</a></li>
+        </ul>
+        <ul id="subMenu" class="sub-menu">
+            <li><a href="add_payment_info.html">Add Payment Info</a></li>
+            <li><a href="create_company_join_team.html">Create Company / Join Team</a></li>
+            <li><a href="add_employment_information.html">Add Employment Information</a></li>
+            <li><a href="paymentTable.html">Make Payment</a></li>
+            <li><a href="past_payments.html">Past Payments</a></li>
+            <li><a href="detailed_payment.html">Detailed Payment</a></li>
+        </ul>
+    </nav>
+    
+</body>
+</html>
