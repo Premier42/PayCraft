@@ -26,6 +26,7 @@
             
             <div class="row mb-3">
                 <div class="col">
+                    <div class="table-responsive">
                     <table id="paymentTable" class="table">
                         <thead>
                             <tr>
@@ -42,7 +43,8 @@
                         <tbody></tbody>
                     </table>
                 </div>
-            </div>
+             </div>
+           </div> 
 
             <div class="col-md-4">
                 <div class="mb-3">
@@ -77,16 +79,11 @@
                 <input type="text" id="totalIncludingTax" name="totalIncludingTax" readonly>
             </div>
 
-
              <button type="submit" class="btn btn-primary">Proceed to Pay</button>
 
             <p id="paymentStatus"></p>
         </form>
     </main>
-    
-        <footer>
-            <!-- place footer here -->
-        </footer>
         <!-- Bootstrap JavaScript Libraries -->
         <script
             src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
@@ -100,7 +97,7 @@
             crossorigin="anonymous"
         ></script>
         
-        <script src="payment__table.js"></script>
+        <script src="paymentTable.js"></script>
 
     </body>
 </html>
