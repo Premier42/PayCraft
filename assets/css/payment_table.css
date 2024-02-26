@@ -3,23 +3,23 @@ body {
 }
 
 main {
-    padding: 40px;
+    padding: 50px;
     display: flex;
     justify-content: center;
 }
 
 #paymentForm {
     background-color:whitesmoke;
-    padding: 20px;
-    border-radius: 8px;
+    padding:20px;
+    border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    max-width: 600px;
+    max-width: 800px;
     width: 100%;
 }
 
 #paymentForm label {
     display: block;
-    margin-bottom: 8px;
+    margin-bottom: 10px;
     font-weight: bold;
 }
 
@@ -44,4 +44,29 @@ main {
 
 #paymentForm button:hover {
     background-color:#206bfb;
+}
+
+#paymentForm table {
+    width: 100%;
+    overflow-x: auto; /* Enable horizontal scrolling for smaller screens */
+}
+
+@media (max-width: 768px) {
+    #paymentTable {
+        width: auto; /* Allow the table to expand horizontally */
+    }
+}
+
+#paymentForm table tbody td:nth-child(2) input {
+    width: 60px; 
+}
+
+
+.table-responsive {
+    overflow-x: auto;
+}
+
+#totalIncludingTax {
+    width: 150px !important;
+    padding: 8px !important;
 }
