@@ -29,7 +29,6 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // Event listener for checkbox click event remains unchanged
 
     // Add event listener to the payment form for submitting payment
     paymentForm.addEventListener('submit', function (event) {
