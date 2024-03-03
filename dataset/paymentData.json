@@ -3,50 +3,56 @@
         "paymentStatus": true,
         "uniqueId": "123456",
         "employeeName": "John Doe",
+        "companyName": "xxx",
         "paymentPerHour": 20.5,
         "hoursWorked": 40,
         "bonus": 100,
         "deduction": 50,
-        "totalPayment": 850
+        "tax": 0
     },
     {
         "paymentStatus": false,
         "uniqueId": "789012",
         "employeeName": "Jane Smith",
+        "companyName": "xxx",
         "paymentPerHour": 18.75,
         "hoursWorked": 35,
         "bonus": 75,
         "deduction": 25,
-        "totalPayment": 618.75
+        "tax": 0
     },
     {
         "paymentStatus": false,
         "uniqueId": "003",
         "employeeName": "Alice Johnson",
+        "companyName": "xxx",
         "paymentPerHour": 20.00,
         "hoursWorked": 45,
         "bonus": 120,
         "deduction": 60,
-        "totalPayment": 700.75
+        "tax": 0
     },
     {
         "paymentStatus": true,
         "uniqueId": "456789",
         "employeeName": "Bob Williams",
+        "companyName": "xxx",
         "paymentPerHour": 22.25,
         "hoursWorked": 37,
         "bonus": 85,
         "deduction": 30,
-        "totalPayment": 817.75
+        "tax": 0
     },
     {
         "paymentStatus": false,
         "uniqueId": "987654",
         "employeeName": "Sarah Johnson",
+        "companyName": "yyy",
         "paymentPerHour": 19.50,
         "hoursWorked": 42,
         "bonus": 90,
         "deduction": 40,
-        "totalPayment": 779
+        "tax": 0
     }
 ]
+
