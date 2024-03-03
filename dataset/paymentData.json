@@ -6,7 +6,6 @@
         "companyName": "xxx",
         "paymentPerHour": 20.5,
         "hoursWorked": 40,
-        "bonus": 100,
         "deduction": 50,
         "tax": 0
     },
@@ -17,7 +16,6 @@
         "companyName": "xxx",
         "paymentPerHour": 18.75,
         "hoursWorked": 35,
-        "bonus": 75,
         "deduction": 25,
         "tax": 0
     },
@@ -29,7 +27,6 @@
         "paymentPerHour": 20.00,
         "hoursWorked": 45,
         "bonus": 120,
-        "deduction": 60,
         "tax": 0
     },
     {
@@ -40,7 +37,6 @@
         "paymentPerHour": 22.25,
         "hoursWorked": 37,
         "bonus": 85,
-        "deduction": 30,
         "tax": 0
     },
     {
@@ -50,9 +46,9 @@
         "companyName": "yyy",
         "paymentPerHour": 19.50,
         "hoursWorked": 42,
-        "bonus": 90,
         "deduction": 40,
         "tax": 0
     }
 ]
+
 
