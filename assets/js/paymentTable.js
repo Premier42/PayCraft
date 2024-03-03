@@ -1,96 +1,85 @@
-//author rimjhim
+// Author: Rimjhim
 document.addEventListener('DOMContentLoaded', function () {
-    // Get the payment form, table body, and total including tax input field
     var paymentForm = document.getElementById('paymentForm');
     var paymentTableBody = document.querySelector('#paymentForm table tbody');
-    var totalIncludingTaxInput = document.getElementById('totalIncludingTax');
+    var proceedToPayButton = document.querySelector('.btn-primary');
 
-    // Populate the payment table with data from JSON file
+    var companyName = localStorage.getItem('xyz'); // Retrieve company name from local storage
+
     fetch('paymentData.json')
         .then(response => response.json())
         .then(data => {
-            populatePaymentTable(data);
-            calculateTotalIncludingTax(data); // Calculate total including tax
+            var employeesUnderCompany = data.filter(item => item.companyName === companyName);
+            populatePaymentTable(employeesUnderCompany);
         });
+
+        proceedToPayButton.addEventListener('click', function(event) {
+            event.preventDefault(); // Prevent default form submission behavior
+            calculateTotalPayment();
+    });
 
     function populatePaymentTable(data) {
         data.forEach(function (item, index) {
             var row = paymentTableBody.insertRow();
             row.innerHTML = `
                 <td><input type="checkbox" id="paymentStatus${index + 1}" name="paymentStatus${index + 1}"></td>
-                <td><input type="text" id="uniqueId${index + 1}" name="uniqueId${index + 1}" class="form-control" value="${item.uniqueId}" readonly></td>
-                <td><input type="text" id="employeeName${index + 1}" name="employeeName${index + 1}" class="form-control" value="${item.employeeName}"></td>
-                <td>$${item.paymentPerHour.toFixed(2)}</td>
+                <td>${item.uniqueId}</td>
+                <td>${item.employeeName}</td>
+                <td><input type="text" id="paymentPerHour${index + 1}" name="paymentPerHour${index + 1}" class="form-control" value="${item.paymentPerHour.toFixed(2)}"></td>
                 <td><input type="text" id="hoursWorked${index + 1}" name="hoursWorked${index + 1}" class="form-control" value="${item.hoursWorked}"></td>
-                <td><input type="text" id="bonus${index + 1}" name="bonus${index + 1}" class="form-control" value="${item.bonus}"></td>
-                <td><input type="text" id="deduction${index + 1}" name="deduction${index + 1}" class="form-control deduction" value="${item.deduction}"></td>
-                <td class="total"><input type="text" id="totalPayment${index + 1}" name="totalPayment${index + 1}" class="form-control" value="${item.totalPayment.toFixed(2)}" readonly></td>
+                <td><input type="text" id="bonusOrDeduction${index + 1}" name="bonusOrDeduction${index + 1}" class="form-control bonusOrDeduction" value="${Math.abs(item.bonus || item.deduction || 0)}"></td>
             `;
         });
     }
 
-
-    // Add event listener to the payment form for submitting payment
-    paymentForm.addEventListener('submit', function (event) {
-        event.preventDefault(); // Prevent the form from submitting normally
-
-        // Get the number of rows in the table
-        var numRows = paymentTableBody.rows.length;
-
-        // Loop through each row and collect data
-        var payrollData = [];
-        for (var i = 0; i < numRows; i++) {
-            var row = paymentTableBody.rows[i];
-            var rowData = {
-                uniqueId: row.cells[1].querySelector('input').value,
-                employeeName: row.cells[2].querySelector('input').value,
-                paymentPerHour: parseFloat(row.cells[3].textContent.replace('$', '')),
-                hoursWorked: parseFloat(row.cells[4].querySelector('input').value),
-                bonus: parseFloat(row.cells[5].querySelector('input').value),
-                deduction: parseFloat(row.cells[6].querySelector('input').value),
-                totalPayment: parseFloat(row.cells[7].querySelector('input').value)
-            };
-            payrollData.push(rowData);
-        }
-
-        // Process payroll data (e.g., send to server, calculate totals, etc.)
-        console.log(payrollData);
-    });
-
-    // Add event listener to the payment form for calculating total payment
-    paymentForm.addEventListener('input', function (event) {
-        var target = event.target;
-        if (target.matches('.form-control')) {
-            calculateTotalPayment(target.closest('tr'));
-            calculateTotalIncludingTax(data); // Recalculate total including tax
-        }
-    });
-
-    function calculateTotalPayment(row) {
-        var paymentPerHour = parseFloat(row.querySelector('[name^="paymentPerHour"]').value);
-        var hoursWorked = parseFloat(row.querySelector('[name^="hoursWorked"]').value) || 0;
-        var bonus = parseFloat(row.querySelector('[name^="bonus"]').value) || 0;
-        var deduction = parseFloat(row.querySelector('[name^="deduction"]').value) || 0;
-
-        var totalPayment = (hoursWorked * paymentPerHour) + bonus - deduction;
-
-        row.querySelector('[name^="totalPayment"]').value = totalPayment.toFixed(2);
-    }
-
-    // Function to calculate total including tax
-    function calculateTotalIncludingTax(data) {
-        // Assuming tax rate is 10% (you can adjust this value accordingly)
-        var taxRate = 0.1;
-
-        // Calculate total payment
-        var totalPayment = data.reduce(function(total, item) {
-            return total + item.totalPayment;
-        }, 0);
-
-        // Calculate total including tax
-        var totalIncludingTax = totalPayment * (1 + taxRate);
-
-        // Update total including tax input field value
-        totalIncludingTaxInput.value = totalIncludingTax.toFixed(2);
+    function calculateTotalPayment() {
+        fetch('company.json')
+            .then(response => response.json())
+            .then(companyData => {
+                //  Retrieve tax value from local storage
+                const tax = parseFloat(localStorage.getItem('tax'));
+    
+                // Check if tax value is valid
+                if (isNaN(tax)) {
+                    throw new Error('Tax information is missing or invalid.');
+                }
+    
+                // Initialize sum variable
+                let sum = 0;
+    
+                //  Iterate through each row of the payment table
+                document.querySelectorAll('input[type="checkbox"]').forEach((checkbox, index) => {
+                    if (checkbox.checked) {
+                        const paymentPerHour = parseFloat(document.getElementById(`paymentPerHour${index + 1}`).value);
+                        const hoursWorked = parseFloat(document.getElementById(`hoursWorked${index + 1}`).value);
+                        const bonus = parseFloat(document.getElementById(`bonusOrDeduction${index + 1}`).value);
+    
+                        // Calculate payment for this row and add to sum
+                        sum += (hoursWorked * paymentPerHour) + bonus;
+                    }
+                });
+    
+                // Calculate total payment including tax
+                const totalIncludingTax = sum * (1 + tax); // Calculate total including tax
+    
+                // Update total payment value in the HTML
+                const totalPaymentValueElement = document.getElementById('totalPaymentValue');
+                totalPaymentValueElement.textContent = totalIncludingTax.toFixed(2);
+    
+                // Show the total payment section
+                const totalPaymentSection = document.getElementById('totalPaymentSection');
+                totalPaymentSection.style.display = 'block';
+    
+                //  Handle click event for the "Confirm" button
+                const confirmButton = document.getElementById('confirmButton');
+                confirmButton.addEventListener('click', function() {
+                    // Redirect to overview.html
+                    window.location.href = 'overview.html';
+                });
+            })
+            .catch(error => {
+                console.error('Error fetching company data:', error);
+                window.alert('Error calculating total payment: ' + error.message);
+            });
     }
 });
