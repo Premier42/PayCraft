@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bootstrap Dashboard with Sidebar</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" rel="stylesheet">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="overview_style.css">
+</head>
+
+<body>
+
+  <div class="sidebar">
+    <a href="#">Overview</a>
+    <hr>
+    <a href="#" class="create-company-link">Create Company</a>
+    <a href="#" class="add-employee-link">Add Employee</a>
+    <a href="#" class="company-details">Company Details</a>
+    <!-- <hr>
+    <a href="#" class="join-team-link">Join Team</a> -->
+    <hr>
+    <a href="#" class="history-link">History</a>
+    <a href="#">Settings</a>
+    <a href="#">Log Out</a>
+  </div>
+
+  <div class="content">
+    <!-- Create Company Form -->
+    <div class="form-container" id="createCompanyForm">
+      <h3>Create Company</h3>
+      <form>
+        <div class="form-group">
+          <label for="companyName">Company Name</label>
+          <input type="text" class="form-control" id="companyName" placeholder="Enter company name">
+        </div>
+        <div class="form-group">
+          <label for="companyOfficalEmail">Company Official Email</label>
+          <input type="text" class="form-control" id="companyOfficalEmail" placeholder="Enter Company Official Email">
+        </div>
+        <div class="form-group">
+          <label for="companyEIN">Company EIN Number</label>
+          <input type="text" class="form-control" id="companyEIN" placeholder="Enter Company EIN number">
+        </div>
+        <div class="form-group">
+          <label for="company_address">Company Address</label>
+          <input type="text" class="form-control" id="company_address" placeholder="Enter Company Address">
+        </div>
+
+        <!-- Add more input fields for other necessary information -->
+        <button type="submit" class="btn btn-primary" disabled>Submit</button>
+      </form>
+    </div>
+
+    <!-- Add Employee Form -->
+    <div class="form-container" id="addEmployeeForm">
+      <h3>Add Employee</h3>
+      <form>
+        <div class="form-group">
+          <label for="employeeName">Employee Name</label>
+          <input type="text" class="form-control" id="employeeName" placeholder="Enter employee name">
+        </div>
+        <div class="form-group">
+          <label for="employeeEmail">Employee Email</label>
+          <input type="email" class="form-control" id="employeeEmail" placeholder="Enter employee email">
+        </div>
+        <!-- Add more input fields for other necessary information -->
+        <button type="submit" class="btn btn-primary" disabled>Submit</button>
+      </form>
+    </div>
+
+    <!-- Employee Details Table -->
+    <div class="table-container" id="employeeDetails">
+      <h3>Employee Details</h3>
+      <table class="table" id="employeeTable">
+        <thead>
+          <tr>
+            <th>Employee Name</th>
+            <th>Employee ID</th>
+            <th>Department</th>
+            <th>Position</th>
+            <th>Employee Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Employee data will be inserted here dynamically -->
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Payment History Table -->
+    <div class="table-container" id="paymentHistory">
+      <h3>Payment History</h3>
+      <table class="table" id="paymentHistoryTable">
+        <thead>
+          <tr>
+            <th>Serial No</th>
+            <th>Transaction Number</th>
+            <th>Date</th>
+            <th>Amount</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Payment history data will be inserted here dynamically -->
+        </tbody>
+      </table>
+    </div>
+
+
+  </div>
+
+  <!-- Bootstrap JS and dependencies -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="overview_js.js"></script>
+
+</body>
+</html>
