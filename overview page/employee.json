@@ -1,0 +1,18 @@
+[
+    {
+      "employeename": "John Doe",
+      "employeeID": "EMP001",
+      "department": "IT",
+      "position": "Software Engineer",
+      "employeeStatus": "Active"
+    },
+    {
+      "employeename": "Jane Smith",
+      "employeeID": "EMP002",
+      "department": "HR",
+      "position": "HR Manager",
+      "employeeStatus": "Active"
+    }
+    
+  ]
+  
