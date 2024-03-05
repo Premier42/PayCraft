@@ -1,14 +1,25 @@
 [
     {
         "employerEmail": "sakib@example.com",
-        "companyName": "Binge",
+        "employerName": "Md. Sakib",
+        "employerAddress": "lal dighi , ctg",
+        "companyName": "Sakib's Company",
+        "companyEIN": "1103321",
+        "employerIndustry": "latex",
         "companySize": "small",
-        "employees": ["john@example.com", "jane@example.com", "admin@mod.com"]
-    },
-    {
-        "employerEmail": "",
-        "companyName": "",
-        "companySize": "",
-        "employees": []
+        "employees": [
+            {
+                "name": "Admin",
+                "email": "admin@mod.com"
+            },
+            {
+                "name": "John Doe",
+                "email": "john@example.com"
+            },
+            {
+                "name": "Jane Smith",
+                "email": "jane@example.com"
+            }
+        ]
     }
 ]

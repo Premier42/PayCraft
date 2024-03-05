@@ -1,51 +1,68 @@
 /* this would trigger the first time setup */
 body {
-    font-family: "Open Sans", sans-serif;
-    background-color: #f8f9fa;
-  }
+  font-family: "Open Sans", sans-serif;
+  background-color: #f8f9fa;
+}
 
-  main {
-    padding-top: 50px;
-  }
+main {
+  padding-top: 50px;
+}
 
-  #setup {
-    background-color: #ffffff;
-    border-radius: 10px;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-    padding: 40px;
-    margin: 50px auto;
-    max-width: 600px;
-  }
+#setup {
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  padding: 40px;
+  margin: 50px auto;
+  max-width: 600px;
+}
 
-  h2 {
-    font-size: 24px;
-    color: #333;
-    text-align: center;
-    margin-bottom: 30px;
-  }
+h2 {
+  font-size: 24px;
+  color: #333;
+  text-align: center;
+  margin-bottom: 30px;
+}
 
-  .btn-container {
-    text-align: center;
-    margin-top: 30px;
-  }
+.btn-container {
+  text-align: center;
+  margin-top: 30px;
+}
 
-  .btn-container .btn {
-    margin: 10px;
-    font-size: 18px;
-    width: 200px;
-    background-color: #28a745; /* Green color */
-    border-color: #28a745; /* Green color */
-    color: #fff; /* White font color */
-  }
+.btn-container .btn {
+  margin: 10px;
+  font-size: 18px;
+  width: 200px;
+  background-color: #28a745; /* Green color */
+  border-color: #28a745; /* Green color */
+  color: #fff; /* White font color */
+}
 
-  .btn-container .btn:hover {
-    background-color: #218838; /* Darker green on hover */
-    border-color: #218838; /* Darker green border on hover */
-  }
+.btn-container .btn:hover {
+  background-color: #28a745; /* Darker green on hover */
+  border-color: #28a745; /* Darker green border on hover */
+}
 
-  .btn-container span {
-    display: block;
-    margin-top: 10px;
-    font-size: 14px;
-    color: #666;
-  }
+.btn-container span {
+  display: block;
+  margin-top: 10px;
+  font-size: 14px;
+  color: #666;
+}
+
+/* Logout button */
+#logoutButton {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+}
+/* Add styles for the footer buttons */
+.card-footer {
+  background-color: #f8f9fa;
+  padding: 10px;
+  text-align: right;
+}
+
+.card-footer button {
+  margin: 5px;
+}

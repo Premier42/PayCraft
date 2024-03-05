@@ -16,6 +16,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     document.getElementById('setup').style.display = 'none';
                     document.getElementById('employer').style.display = 'block';
                     document.getElementById('employee').style.display = 'none';
+                    document.getElementById('logoutContainer').style.display = 'block';
 
                     // Fetch company information from company.json
                     fetch('/dataset/company.json')
@@ -27,9 +28,20 @@ document.addEventListener('DOMContentLoaded', function() {
                                 // Populate company information card
                                 const companyInfoCard = document.querySelector('#companyInfo');
                                 companyInfoCard.innerHTML = `
-                                    <h5 class="card-title">${company.companyName}</h5>
-                                    <p class="card-text">Company Size: ${company.companySize}</p>
+                                    <h4>Company Information</h4>
+                                    <p><strong>Company Name:</strong> ${company.companyName}</p>
+                                    <p><strong>Company Size:</strong> ${company.companySize}</p>
+                                    <p><strong>Company EIN:</strong> ${company.companyEIN}</p>
+                                    <p><strong>Company Industry:</strong> ${company.employerIndustry}</p>
                                 `;
+
+                                // Populate employee list
+                                const employeeList = document.querySelector('#employeeList');
+                                company.employees.forEach(employee => {
+                                    const li = document.createElement('li');
+                                    li.textContent = `${employee.name} - ${employee.email}`;
+                                    employeeList.appendChild(li);
+                                });
                             }
                         })
                         .catch(error => {
@@ -65,6 +77,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     document.getElementById('setup').style.display = 'none';
                     document.getElementById('employer').style.display = 'none';
                     document.getElementById('employee').style.display = 'block';
+                    document.getElementById('logoutContainer').style.display = 'block';
 
                     // Populate employee information card
                     const employeeInfoCard = document.querySelector('#employee .card-body');
@@ -110,14 +123,26 @@ document.addEventListener('DOMContentLoaded', function() {
     // Button listeners
     const joinButton = document.getElementById('joinButton');
     const createButton = document.getElementById('createButton');
+    const addEmployeeButton = document.getElementById('addEmployeeButton');
+    const makePaymentButton = document.getElementById('makePaymentButton');
 
     joinButton.addEventListener('click', function() {
-      //updateUserState(userEmail, 2); // Update user state to 2 , needs a server to do this
+        //updateUserState(userEmail, 2); // Update user state to 2 , needs a server to do this
         window.location.href = './overview.html';
     });
 
     createButton.addEventListener('click', function() {
         window.location.href = 'registerCompany.html';
+    });
+
+    addEmployeeButton.addEventListener('click', function() {
+        // Redirect to add employee page
+        window.location.href = 'addEmployee.html';
+    });
+
+    makePaymentButton.addEventListener('click', function() {
+        // Redirect to make payment page
+        window.location.href = 'makePayment.html';
     });
 
     // Logout button event listener
@@ -127,5 +152,5 @@ document.addEventListener('DOMContentLoaded', function() {
         localStorage.removeItem('UserEmail');
         // Redirect to index.html
         window.location.href = '../index.html';
-      });
+    });
 });
