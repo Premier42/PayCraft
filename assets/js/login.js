@@ -15,7 +15,8 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
             } else {
                 if (user.password === password) {
                     alert('Login successful.');
-                    window.location.href = './pages/overview.html';
+                    localStorage.setItem('UserEmail', email); // Save email to local storage
+                    window.location.href = 'overview.html';
                 } else {
                     alert('Incorrect password. Please try again.');
                 }
