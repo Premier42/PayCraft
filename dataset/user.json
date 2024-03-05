@@ -13,7 +13,7 @@
         "email": "john@example.com",
         "nid": "1234567890",
         "phoneNumber": "1234567890",
-        "state":0
+        "state":2
     },
     {
         "name": "Md. Sakib",
@@ -27,6 +27,14 @@
         "name": "Jane Smith",
         "password": "anotherpassword",
         "email": "jane@example.com",
+        "nid": "0987654321",
+        "phoneNumber": "0987654321",
+        "state":2
+    },
+    {
+        "name": "William Smith",
+        "password": "anotherpassword",
+        "email": "Will@example.com",
         "nid": "0987654321",
         "phoneNumber": "0987654321",
         "state":0
