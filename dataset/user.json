@@ -1,30 +1,34 @@
 [
     {
         "name": "Admin",
-        "password": "admin",
+        "password": "12345",
         "email": "admin@mod.com",
         "nid": "000",
-        "phoneNumber": "000"
+        "phoneNumber": "000",
+        "state":2
     },
     {
         "name": "John Doe",
-        "password": "examplepassword",
+        "password": "12345",
         "email": "john@example.com",
         "nid": "1234567890",
-        "phoneNumber": "1234567890"
+        "phoneNumber": "1234567890",
+        "state":0
     },
     {
         "name": "Md. Sakib",
-        "password": "examplepassword",
-        "email": "john@example.com",
+        "password": "12345",
+        "email": "sakib@example.com",
         "nid": "1234567890",
-        "phoneNumber": "1234567890"
+        "phoneNumber": "1234567890",
+        "state":1
     },
     {
         "name": "Jane Smith",
         "password": "anotherpassword",
         "email": "jane@example.com",
         "nid": "0987654321",
-        "phoneNumber": "0987654321"
+        "phoneNumber": "0987654321",
+        "state":0
     }
 ]

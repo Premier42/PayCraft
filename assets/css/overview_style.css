@@ -1,61 +1,51 @@
-/* Open sens font from google */
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap')
-
-*{
-    margin: 0;
-    padding: 0;
+/* this would trigger the first time setup */
+body {
     font-family: "Open Sans", sans-serif;
-}
-.sidebar {
-    height: 100%;
-    width: 25%;
-    top: 0;
-    left: 0;
-    background-color: #4fd28a;
+    background-color: #f8f9fa;
+  }
+
+  main {
     padding-top: 50px;
-    position: fixed;
-  
   }
 
-  .sidebar hr {
-    height: 1px;
-    background-color: #ace5c6;
+  #setup {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    margin: 50px auto;
+    max-width: 600px;
   }
 
-  .sidebar a {
-    padding: 10px 15px;
-    text-decoration: none;
-    font-size: 15px;
-    color: #fff;
+  h2 {
+    font-size: 24px;
+    color: #333;
+    text-align: center;
+    margin-bottom: 30px;
+  }
+
+  .btn-container {
+    text-align: center;
+    margin-top: 30px;
+  }
+
+  .btn-container .btn {
+    margin: 10px;
+    font-size: 18px;
+    width: 200px;
+    background-color: #28a745; /* Green color */
+    border-color: #28a745; /* Green color */
+    color: #fff; /* White font color */
+  }
+
+  .btn-container .btn:hover {
+    background-color: #218838; /* Darker green on hover */
+    border-color: #218838; /* Darker green border on hover */
+  }
+
+  .btn-container span {
     display: block;
-  }
-
-  .sidebar a:hover {
-    background-color: #5a6268;
-  }
-
-  .content {
-    margin-left: 25%;
-    padding: 20px;
-    width: 75%;
-    margin-right: 0;
-    
-    position: relative;
-   
-  }
-
-  .form-container {
-    display: none;
-    position: absolute;
-    width: 100%;
-    z-index: 2;
-   
-  }
-
-  .table-container {
-    display: none;
-  }
-
-  .table-container table {
-    width: 100%;
+    margin-top: 10px;
+    font-size: 14px;
+    color: #666;
   }

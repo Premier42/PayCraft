@@ -2,122 +2,139 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bootstrap Dashboard with Sidebar</title>
-  <!-- Bootstrap CSS -->
-  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-  <!-- Font Awesome -->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" rel="stylesheet">
-  <!-- Custom CSS -->
-  <link rel="stylesheet" href="/assets/css/overview_style.css">
+    <title>Bootstrap Dashboard with Sidebar</title>
+        <!-- Required meta tags -->
+        <meta charset="utf-8" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1, shrink-to-fit=no"
+        />
+    
+        <!-- Bootstrap CSS v5.2.1 -->
+        <link
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+          crossorigin="anonymous"
+        />
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/assets/css/overview_style.css">
+    
 </head>
 
 <body>
-
-  <div class="sidebar">
-    <a href="#">Overview</a>
-    <hr>
-    <a href="#" class="create-company-link">Create Company</a>
-    <a href="#" class="add-employee-link">Add Employee</a>
-    <a href="#" class="company-details">Company Details</a>
-    <!-- <hr>
-    <a href="#" class="join-team-link">Join Team</a> -->
-    <hr>
-    <a href="#" class="history-link">History</a>
-    <a href="#">Settings</a>
-    <a href="#">Log Out</a>
-  </div>
-
-  <div class="content">
-    <!-- Create Company Form -->
-    <div class="form-container" id="createCompanyForm">
-      <h3>Create Company</h3>
-      <form>
-        <div class="form-group">
-          <label for="companyName">Company Name</label>
-          <input type="text" class="form-control" id="companyName" placeholder="Enter company name">
+    <main>
+        <div id="setup" class="container">
+            <h2>First-time Account Setup</h2>
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <div class="btn-container">
+                        <!-- Buttons for account setup -->
+                        <button id="joinButton" type="button" class="btn btn-primary btn-lg">Join Workforce</button>
+                        <span>By clicking this button, you will be able to let your employer add you to their company's employee list</span>
+                        <button id="createButton" type="button" class="btn btn-success btn-lg">Create Company</button>
+                        <span>By clicking this button, you will be able to create a company list and manage/pay your employees</span>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="form-group">
-          <label for="companyOfficalEmail">Company Official Email</label>
-          <input type="text" class="form-control" id="companyOfficalEmail" placeholder="Enter Company Official Email">
+    
+        <div class="container" id="employer">
+            <!-- Company Overview title -->
+            <h2>Company Overview</h2>
+            
+            <!-- Logout button at right -->
+            <div class="text-end mb-3">
+                <button id="logoutButton" type="button" class="btn btn-danger">Logout</button>
+            </div>
+            
+            <!-- Company information card -->
+            <div class="card mb-3">
+                <div class="card-body" id="companyInfo">
+                    <!-- Company information will be populated dynamically -->
+                </div>
+            </div>
+            
+            <!-- Dynamic table for previous transactions -->
+            <h3>Previous Transactions</h3>
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Transaction ID</th>
+                            <th>Amount</th>
+                            <th>Date</th>
+                            <th>Receiver</th>
+                            <!-- Add more table headers if needed -->
+                        </tr>
+                    </thead>
+                    <tbody id="transactionTableBody">
+                        <!-- Transaction data will be populated dynamically -->
+                    </tbody>
+                </table>
+            </div>
         </div>
-        <div class="form-group">
-          <label for="companyEIN">Company EIN Number</label>
-          <input type="text" class="form-control" id="companyEIN" placeholder="Enter Company EIN number">
+        
+        <div class="container" id="employee">
+          <!-- Employee Overview title ; logout button at right ( when clicked,clear local storage and goes to index.html )
+              under title create a card to show the employee information from user.json
+              under that create a dynamic table that shows the previous transactions which were made to this id . this information could be found in transaction.json
+          -->
+          <div class="container" id="employer">
+            <!-- Employee Overview title -->
+            <h2>Employee Overview</h2>
+            
+            <!-- Logout button at right -->
+            <div class="text-end mb-3">
+                <button id="logoutButton" type="button" class="btn btn-danger">Logout</button>
+            </div>
+            
+            <!-- Employee information card -->
+            <div class="card mb-3">
+                <div class="card-body">
+                    <!-- Employee information from user.json -->
+                    <!-- You can use JavaScript to populate this section dynamically -->
+                </div>
+            </div>
+            
+            <!-- Dynamic table for previous transactions -->
+            <h3>Previous Transactions</h3>
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Transaction ID</th>
+                            <th>Amount</th>
+                            <th>Date</th>
+                            <th>Received from</th>
+                            <!-- Add more table headers if needed -->
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- You can use JavaScript to populate this table dynamically -->
+                    </tbody>
+                </table>
+            </div>
         </div>
-        <div class="form-group">
-          <label for="company_address">Company Address</label>
-          <input type="text" class="form-control" id="company_address" placeholder="Enter Company Address">
+        
         </div>
+      </main>
 
-        <!-- Add more input fields for other necessary information -->
-        <button type="submit" class="btn btn-primary" disabled>Submit</button>
-      </form>
-    </div>
+    <!-- Bootstrap JavaScript Libraries -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+      integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+      crossorigin="anonymous"
+    ></script>
 
-    <!-- Add Employee Form -->
-    <div class="form-container" id="addEmployeeForm">
-      <h3>Add Employee</h3>
-      <form>
-        <div class="form-group">
-          <label for="employeeName">Employee Name</label>
-          <input type="text" class="form-control" id="employeeName" placeholder="Enter employee name">
-        </div>
-        <div class="form-group">
-          <label for="employeeEmail">Employee Email</label>
-          <input type="email" class="form-control" id="employeeEmail" placeholder="Enter employee email">
-        </div>
-        <!-- Add more input fields for other necessary information -->
-        <button type="submit" class="btn btn-primary" disabled>Submit</button>
-      </form>
-    </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+      integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+      crossorigin="anonymous"
+    ></script>
 
-    <!-- Employee Details Table -->
-    <div class="table-container" id="employeeDetails">
-      <h3>Employee Details</h3>
-      <table class="table" id="employeeTable">
-        <thead>
-          <tr>
-            <th>Employee Name</th>
-            <th>Employee ID</th>
-            <th>Department</th>
-            <th>Position</th>
-            <th>Employee Status</th>
-          </tr>
-        </thead>
-        <tbody>
-          <!-- Employee data will be inserted here dynamically -->
-        </tbody>
-      </table>
-    </div>
-
-    <!-- Payment History Table -->
-    <div class="table-container" id="paymentHistory">
-      <h3>Payment History</h3>
-      <table class="table" id="paymentHistoryTable">
-        <thead>
-          <tr>
-            <th>Serial No</th>
-            <th>Transaction Number</th>
-            <th>Date</th>
-            <th>Amount</th>
-          </tr>
-        </thead>
-        <tbody>
-          <!-- Payment history data will be inserted here dynamically -->
-        </tbody>
-      </table>
-    </div>
-
-
-  </div>
-
-  <!-- Bootstrap JS and dependencies -->
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-<script src="/assets/js/overview_js.js"></script>
+    <script src="/assets/js/overview_js.js"></script>
 
 </body>
+
 </html>

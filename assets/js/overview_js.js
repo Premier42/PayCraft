@@ -1,74 +1,131 @@
-$(document).ready(function () {
-    // Click event handlers for navigation links
-    $(".create-company-link").click(function (e) {
-      e.preventDefault();
-      toggleForms("#createCompanyForm");
-    });
+document.addEventListener('DOMContentLoaded', function() {
+    const userEmail = localStorage.getItem('UserEmail');
 
-    $(".add-employee-link").click(function (e) {
-      e.preventDefault();
-      toggleForms("#addEmployeeForm");
-    });
+    // Load user data from JSON file
+    fetch('/dataset/user.json')
+        .then(response => response.json())
+        .then(userData => {
+            const user = userData.find(user => user.email === userEmail);
+            if (user) {
+                const state = user.state;
+                if (state === 0) {  // for when setup is needed
+                    document.getElementById('setup').style.display = 'block';
+                    document.getElementById('employer').style.display = 'none';
+                    document.getElementById('employee').style.display = 'none';
+                } else if (state === 1) {  // for when employer
+                    document.getElementById('setup').style.display = 'none';
+                    document.getElementById('employer').style.display = 'block';
+                    document.getElementById('employee').style.display = 'none';
 
-    $(".company-details").click(function (e) {
-      e.preventDefault();
-      toggleForms("#employeeDetails");
-    });
+                    // Fetch company information from company.json
+                    fetch('/dataset/company.json')
+                        .then(response => response.json())
+                        .then(companyData => {
+                            // Find the company owned by the current user
+                            const company = companyData.find(company => company.employerEmail === userEmail);
+                            if (company) {
+                                // Populate company information card
+                                const companyInfoCard = document.querySelector('#companyInfo');
+                                companyInfoCard.innerHTML = `
+                                    <h5 class="card-title">${company.companyName}</h5>
+                                    <p class="card-text">Company Size: ${company.companySize}</p>
+                                `;
+                            }
+                        })
+                        .catch(error => {
+                            console.error('Error fetching company data:', error);
+                        });
 
-    $(".history-link").click(function (e) {
-      e.preventDefault();
-      toggleForms("#paymentHistory");
-    });
+                    // Fetch transaction data from transaction.json
+                    fetch('/dataset/transaction.json')
+                        .then(response => response.json())
+                        .then(transactionData => {
+                            // Filter transactions for the current company owner
+                            const ownerTransactions = transactionData.filter(transaction => transaction.from === userEmail);
+                            
+                            // Populate the dynamic table with transaction data
+                            const transactionTableBody = document.querySelector('#transactionTableBody');
+                            ownerTransactions.forEach(transaction => {
+                                const row = `
+                                    <tr>
+                                        <td>${transaction.transactionId}</td>
+                                        <td>${transaction.amount}</td>
+                                        <td>${transaction.date}</td>
+                                        <td>${transaction.to}</td>
+                                    </tr>
+                                `;
+                                transactionTableBody.innerHTML += row;
+                            });
+                        })
+                        .catch(error => {
+                            console.error('Error fetching transaction data:', error);
+                        });
 
-    function toggleForms(formId) {
-      // Hide all sections before toggling the selected one
-      $(".table-container, .form-container").hide();
-      // Toggle the selected section
-      $(formId).toggle().find('input').val('');
-      if (formId === "#paymentHistory" && $(formId).is(":visible")) {
-        fetchPaymentHistory();
-      } else if (formId === "#employeeDetails" && $(formId).is(":visible")) {
-        fetchEmployeeDetails();
-      } else {
-        $("#paymentHistory tbody").empty();
-        $("#employeeTable tbody").empty();
-      }
-    }
+                } else {  // for when employee
+                    document.getElementById('setup').style.display = 'none';
+                    document.getElementById('employer').style.display = 'none';
+                    document.getElementById('employee').style.display = 'block';
 
-    function fetchPaymentHistory() {
-      var paymentData = [
-        { serialNo: 1, transactionNumber: "TRN12345", date: "2024-03-01", amount: 100 },
-        { serialNo: 2, transactionNumber: "TRN67890", date: "2024-03-05", amount: 150 },
-        { serialNo: 3, transactionNumber: "TRN24680", date: "2024-03-10", amount: 200 }
-      ];
+                    // Populate employee information card
+                    const employeeInfoCard = document.querySelector('#employee .card-body');
+                    employeeInfoCard.innerHTML = `
+                        <h5 class="card-title">${user.name}</h5>
+                        <p class="card-text">Email: ${user.email}</p>
+                        <p class="card-text">Phone Number: ${user.phoneNumber}</p>
+                    `;
 
-      var paymentHistoryTable = $("#paymentHistory tbody");
-      paymentHistoryTable.empty(); // Clear previous data
-      paymentData.forEach(function (payment) {
-        var row = "<tr>" +
-          "<td>" + payment.serialNo + "</td>" +
-          "<td>" + payment.transactionNumber + "</td>" +
-          "<td>" + payment.date + "</td>" +
-          "<td>" + payment.amount + "</td>" +
-          "</tr>";
-        paymentHistoryTable.append(row);
-      });
-    }
+                    // Load transaction data from JSON file
+                    fetch('/dataset/transaction.json')
+                        .then(response => response.json())
+                        .then(transactionData => {
+                            // Filter transactions for the current employee
+                            const employeeTransactions = transactionData.filter(transaction => transaction.to === userEmail);
 
-    function fetchEmployeeDetails() {
-      $.getJSON("employee.json", function (data) {
-        var employeeTable = $("#employeeTable tbody");
-        employeeTable.empty(); // Clear previous data
-        data.forEach(function (employee) {
-          var row = "<tr>" +
-            "<td>" + employee.employeename + "</td>" +
-            "<td>" + employee.employeeID + "</td>" +
-            "<td>" + employee.department + "</td>" +
-            "<td>" + employee.position + "</td>" +
-            "<td>" + employee.employeeStatus + "</td>" +
-            "</tr>";
-          employeeTable.append(row);
+                            // Populate the dynamic table with transaction data
+                            const transactionTableBody = document.querySelector('#employee tbody');
+                            employeeTransactions.forEach(transaction => {
+                                const row = `
+                                    <tr>
+                                        <td>${transaction.transactionId}</td>
+                                        <td>${transaction.amount}</td>
+                                        <td>${transaction.date}</td>
+                                        <td>${transaction.from}</td>
+                                    </tr>
+                                `;
+                                transactionTableBody.innerHTML += row;
+                            });
+                        })
+                        .catch(error => {
+                            console.error('Error fetching transaction data:', error);
+                        });
+                }
+            } else {
+                console.log('User not found');
+            }
+        })
+        .catch(error => {
+            console.error('Error fetching user data:', error);
         });
+
+    // Button listeners
+    const joinButton = document.getElementById('joinButton');
+    const createButton = document.getElementById('createButton');
+
+    joinButton.addEventListener('click', function() {
+      //updateUserState(userEmail, 2); // Update user state to 2 , needs a server to do this
+        window.location.href = './overview.html';
+    });
+
+    createButton.addEventListener('click', function() {
+        window.location.href = 'registerCompany.html';
+    });
+
+    // Logout button event listener
+    const logoutButton = document.getElementById('logoutButton');
+    logoutButton.addEventListener('click', function() {
+        // Clear local storage
+        localStorage.removeItem('UserEmail');
+        // Redirect to index.html
+        window.location.href = '../index.html';
       });
-    }
-  });
+});

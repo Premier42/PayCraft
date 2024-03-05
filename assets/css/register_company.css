@@ -35,13 +35,6 @@ main {
     box-sizing: border-box;
 }
 
-#employerForm input#employerAddress,
-#employerForm input#partnership
-{
-    padding: 30px;
-}
-
-
 #employerForm button {
     background-color: #16df7e;
     color: #ffffff;

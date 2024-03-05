@@ -1,0 +1,14 @@
+[
+    {
+        "employerEmail": "sakib@example.com",
+        "companyName": "Binge",
+        "companySize": "small",
+        "employees": ["john@example.com", "jane@example.com", "admin@mod.com"]
+    },
+    {
+        "employerEmail": "",
+        "companyName": "",
+        "companySize": "",
+        "employees": []
+    }
+]
