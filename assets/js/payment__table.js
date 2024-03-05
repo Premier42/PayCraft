@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function () {
     var paymentTableBody = document.querySelector('#paymentForm table tbody');
 
     // Load JSON data containing IDs and payment per hour values
-    fetch('data.json')
+    fetch('temporary/OVERVIEW/paymentData.json')
         .then(response => response.json())
         .then(data => {
             // Populate the payment table with data from the JSON file
