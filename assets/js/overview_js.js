@@ -17,6 +17,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     document.getElementById('employer').style.display = 'block';
                     document.getElementById('employee').style.display = 'none';
                     document.getElementById('logoutContainer').style.display = 'block';
+                    document.getElementById('addPaymentOptionContainer').style.display = 'block';
 
                     // Fetch company information from company.json
                     fetch('/dataset/company.json')
@@ -78,6 +79,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     document.getElementById('employer').style.display = 'none';
                     document.getElementById('employee').style.display = 'block';
                     document.getElementById('logoutContainer').style.display = 'block';
+                    document.getElementById('addPaymentOptionContainer').style.display = 'block';
 
                     // Populate employee information card
                     const employeeInfoCard = document.querySelector('#employee .card-body');
@@ -125,6 +127,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const createButton = document.getElementById('createButton');
     const addEmployeeButton = document.getElementById('addEmployeeButton');
     const makePaymentButton = document.getElementById('makePaymentButton');
+    const logoutButton = document.getElementById('logoutButton');
+    const addPaymentOptionButton = document.getElementById('addPaymentOptionButton');
 
     joinButton.addEventListener('click', function() {
         //updateUserState(userEmail, 2); // Update user state to 2 , needs a server to do this
@@ -137,20 +141,23 @@ document.addEventListener('DOMContentLoaded', function() {
 
     addEmployeeButton.addEventListener('click', function() {
         // Redirect to add employee page
-        window.location.href = 'addEmployee.html';
+        window.location.href = 'registerEmployee.html';
     });
 
     makePaymentButton.addEventListener('click', function() {
         // Redirect to make payment page
-        window.location.href = 'makePayment.html';
+        window.location.href = 'paymentTable.html';
     });
 
-    // Logout button event listener
-    const logoutButton = document.getElementById('logoutButton');
     logoutButton.addEventListener('click', function() {
         // Clear local storage
         localStorage.removeItem('UserEmail');
         // Redirect to index.html
         window.location.href = '../index.html';
+    });
+
+    addPaymentOptionButton.addEventListener('click', function() {
+        // Redirect to add payment option page
+        window.location.href = 'addPayment.html';
     });
 });
