@@ -1,0 +1,111 @@
+
+/* Author: Rimjhim*/
+body {
+    background-color: #f0f0f0;
+}
+
+main {
+    padding: 50px;
+    display: flex;
+    justify-content: center;
+}
+
+#paymentForm {
+    background-color: whitesmoke;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    width: 100%;
+}
+
+#paymentForm label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+#paymentForm input,
+#paymentForm select {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 12px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+#paymentForm button {
+    background-color: #16df7e;
+    color: #ffffff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#paymentForm button:hover {
+    background-color: #206bfb;
+}
+
+#paymentForm table {
+    width: 100%;
+    overflow-x: auto; /* Enable horizontal scrolling for smaller screens */
+    border-collapse: separate; /* Separate border spacing */
+    border-spacing: 0 10px; /* Set vertical spacing between table cells */
+}
+
+#paymentForm table th,
+#paymentForm table td {
+    padding: 10px; /* Padding for table cells */
+    border: 1px solid #ced4da; /* Border for table cells */
+    border-radius: 4px; /* Border radius for table cells */
+}
+
+#paymentForm table th {
+    background-color: #f8f9fa; /* Background color for table header cells */
+    font-weight: bold;
+    text-align: center;
+}
+
+#paymentForm table tbody td input[type="text"] {
+    width: calc(100% - 16px); /* Adjusted width to account for padding and border */
+    padding: 8px;
+    border: none; /* Remove border for input fields */
+    border-radius: 0; /* Remove border radius for input fields */
+    box-sizing: border-box;
+    background-color: transparent; /* Transparent background color for input fields */
+}
+
+
+
+#paymentForm table tbody td:nth-child(2) {
+    width: 18%; /* Set width for ID column */
+}
+
+#paymentForm table tbody td:nth-child(3) {
+    width: 20%; /* Set width for employee name column */
+}
+
+#paymentForm table tbody td:nth-child(4) {
+    width: 20%; /* Set width for payment per worker  column */
+}
+
+#paymentForm table tbody td:nth-child(5) {
+    width: 15%; /* Set width for hours worked  column */
+}
+
+#paymentForm table tbody td:nth-child(6) {
+    width: 10%; /* Set width for bonus/ deduction column */
+}
+
+
+.table-responsive {
+    overflow-x: auto;
+}
+
+@media (max-width: 768px) {
+    #paymentForm table {
+        width: auto; /* Allow the table to expand horizontally */
+    }
+}
