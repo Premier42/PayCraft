@@ -26,7 +26,7 @@ document.getElementById("signupForm").addEventListener("submit", function(event)
     // Check if email already exists
     const existingEmails = users.map(user => user.email);
     if (existingEmails.includes(email)) {
-        alert("Account already exists with this email. Please sign in instead.");
+        alert("Account already exists with this email. Please log in instead.");
         return;
     }
 
@@ -47,6 +47,8 @@ document.getElementById("signupForm").addEventListener("submit", function(event)
     downloadUsersJson(users);
 
     alert("Account created successfully!");
+    localStorage.setItem('UserEmail', email); // Save email to local storage
+    window.location.href = 'overview.html';
 });
 
 function downloadUsersJson(users) {

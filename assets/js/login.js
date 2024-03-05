@@ -6,7 +6,7 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
     const email = document.getElementById('loginEmail').value;
     const password = document.getElementById('loginPassword').value;
 
-    fetch('/dataset/user.json')
+    fetch('../dataset/user.json')
         .then(response => response.json())
         .then(data => {
             const user = data.find(user => user.email === email);
