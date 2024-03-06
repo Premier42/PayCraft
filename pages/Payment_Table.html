@@ -1,8 +1,9 @@
 <!--Author: Rimjhim-->
+
 <!doctype html>
 <html lang="en">
 <head>
-    <title>Make Payment</title>
+    <title>Payment Table</title>
     <!-- Required meta tags -->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -15,12 +16,12 @@
         crossorigin="anonymous"
     />
 
-    <link rel="stylesheet" href="/assets/css/payment_table.css">
+    <link rel="stylesheet" href="/assets/css/Payment_Table.css">
 </head>
 <body>
     <main>
         <form id="paymentForm">
-            <h2 class="text-center">Make Payment</h2>
+            <h2 class="text-center">Payment History</h2>
 
             <div class="row mb-3">
                 <div class="col">
@@ -40,8 +41,7 @@
                         </table>
                     </div>
                 </div>
-            </div>
-            
+            </div> 
 
             <div class="col-md-4">
                 <div class="mb-3">
@@ -72,11 +72,13 @@
 
             <button type="submit" class="btn btn-primary">Proceed to Pay</button>
 
-            <div id="totalPaymentSection">
-                <p>Total Payment Including Tax: <span id="totalPaymentValue">00</span></p>
-                <button id="confirmButton">Confirm</button>
-            </div>
+           <div id="totalPaymentSection">
+           <p>Total Payment Including Tax: <span id="totalPaymentValue">00</span></p>
+           <button id="confirmButton">Confirm</button>
+</div>
 
+
+            <p id="paymentStatus"></p>
         </form>
     </main>
 
@@ -91,7 +93,6 @@
         integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
         crossorigin="anonymous"
     ></script>
-    <script src="/assets/js/payment__table.js"></script>
+    <script src="/assets/js/Payment_Table.js"></script>
 </body>
 </html>
-
