@@ -1,3 +1,4 @@
+/*Author: Rimjhim*/
 body {
     background-color: #f0f0f0;
 }
@@ -34,13 +35,12 @@ main {
     box-sizing: border-box;
 }
 
-#employerForm input#employerAddress {
-    padding: 40px;
+#employerForm input#employerAddress,
+#employerForm input#partnership
+{
+    padding: 30px;
 }
 
-#employerForm input#partnership {
-    padding: 30px; 
-}
 
 #employerForm button {
     background-color: #16df7e;
