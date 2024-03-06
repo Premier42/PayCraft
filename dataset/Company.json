@@ -1,0 +1,23 @@
+[
+    {
+      "companyName": "ABC Corporation",
+      "taxRate": 0.12
+    },
+    {
+      "companyName": "XYZ Inc.",
+      "taxRate": 0.15
+    },
+    {
+      "companyName": "Example Industries",
+      "taxRate": 0.10
+    },
+    {
+      "companyName": "QuickServe Ltd.",
+      "taxRate": 0.18
+    },
+    {
+      "companyName": "Global Ventures",
+      "taxRate": 0.14
+    }
+  ]
+  
