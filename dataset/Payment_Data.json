@@ -1,0 +1,52 @@
+[
+    {
+        "paymentStatus": true,
+        "uniqueId": "123456",
+        "employeeName": "John Doe",
+        "companyName": "xxx",
+        "paymentPerHour": 20.5,
+        "hoursWorked": 40,
+        "deduction": 50,
+        "tax": 0
+    },
+    {
+        "paymentStatus": false,
+        "uniqueId": "789012",
+        "employeeName": "Jane Smith",
+        "companyName": "xxx",
+        "paymentPerHour": 18.75,
+        "hoursWorked": 35,
+        "deduction": 25,
+        "tax": 0
+    },
+    {
+        "paymentStatus": false,
+        "uniqueId": "003",
+        "employeeName": "Alice Johnson",
+        "companyName": "xxx",
+        "paymentPerHour": 20.00,
+        "hoursWorked": 45,
+        "bonus": 120,
+        "tax": 0
+    },
+    {
+        "paymentStatus": true,
+        "uniqueId": "456789",
+        "employeeName": "Bob Williams",
+        "companyName": "xxx",
+        "paymentPerHour": 22.25,
+        "hoursWorked": 37,
+        "bonus": 85,
+        "tax": 0
+    },
+    {
+        "paymentStatus": false,
+        "uniqueId": "987654",
+        "employeeName": "Sarah Johnson",
+        "companyName": "yyy",
+        "paymentPerHour": 19.50,
+        "hoursWorked": 42,
+        "deduction": 40,
+        "tax": 0
+    }
+]
