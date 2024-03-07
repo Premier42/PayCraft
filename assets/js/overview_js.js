@@ -146,7 +146,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     makePaymentButton.addEventListener('click', function() {
         // Redirect to make payment page
-        window.location.href = 'paymentTable.html';
+        window.location.href = 'Payment_Table.html';
     });
 
     logoutButton.addEventListener('click', function() {
