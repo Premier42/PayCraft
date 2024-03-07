@@ -3,7 +3,7 @@
         "paymentStatus": true,
         "uniqueId": "123456",
         "employeeEmail": "John@example.com",
-        "paymentPerHour": 20.5,
+        "paymentPerHour": 20.5
     },
     {
         "paymentStatus": false,
