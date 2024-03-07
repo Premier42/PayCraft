@@ -29,7 +29,6 @@ document.addEventListener('DOMContentLoaded', function() {
                                 // Populate company information card
                                 const companyInfoCard = document.querySelector('#companyInfo');
                                 companyInfoCard.innerHTML = `
-                                    <h4>Company Information</h4>
                                     <p><strong>Company Name:</strong> ${company.companyName}</p>
                                     <p><strong>Company Size:</strong> ${company.companySize}</p>
                                     <p><strong>Company EIN:</strong> ${company.companyEIN}</p>

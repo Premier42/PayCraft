@@ -1,9 +1,8 @@
 [
     {
         "employerEmail": "sakib@example.com",
-        "employerName": "binge",
         "employerAddress": "lal dighi , ctg",
-        "companyName": "Sakib's Company",
+        "companyName": "binge",
         "companyEIN": "1103321",
         "employerIndustry": "latex",
         "companySize": "small",
