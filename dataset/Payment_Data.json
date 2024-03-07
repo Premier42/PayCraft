@@ -2,12 +2,8 @@
     {
         "paymentStatus": true,
         "uniqueId": "123456",
-        "employeeName": "John Doe",
-        "companyName": "xxx",
+        "employeeEmail": "John@example.com",
         "paymentPerHour": 20.5,
-        "hoursWorked": 40,
-        "deduction": 50,
-        "tax": 0
     },
     {
         "paymentStatus": false,
