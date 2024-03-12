@@ -1,33 +1,33 @@
 [
   {
-    "employerEmail": "sakib@example.com",
-    "employerAddress": "lal dighi , ctg",
-    "companyName": "binge",
-    "companyEIN": "1103321",
-    "employerIndustry": "latex",
-    "companySize": "small",
-    "employees": [
-      {
-        "name": "Admin",
-        "email": "admin@mod.com"
-      },
-      {
-        "name": "John Doe",
-        "email": "john@example.com"
-      },
-      {
-        "name": "Jane Smith",
-        "email": "jane@example.com"
-      },
-      {
-        "name": "Alice Johnson",
-        "email": "alice@example.com"
-      },
-      {
-        "name": "Bob Marley",
-        "email": "bob@example.com"
-      }
-    ]
+      "employerEmail": "sakib@example.com",
+      "employerAddress": "lal dighi , ctg",
+      "companyName": "binge",
+      "companyEIN": "1103321",
+      "employerIndustry": "latex",
+      "companySize": "small",
+      "taxRate": 0.1, 
+      "employees": [
+          {
+              "name": "Admin",
+              "email": "admin@mod.com"
+          },
+          {
+              "name": "John Doe",
+              "email": "john@example.com"
+          },
+          {
+              "name": "Jane Smith",
+              "email": "jane@example.com"
+          },
+          {
+              "name": "Alice Johnson",
+              "email": "alice@example.com"
+          },
+          {
+              "name": "Bob Marley",
+              "email": "bob@example.com"
+          }
+      ]
   }
 ]
-
