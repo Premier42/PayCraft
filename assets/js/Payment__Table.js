@@ -1,4 +1,3 @@
-// Author: Rimjhim
 document.addEventListener('DOMContentLoaded', function () {
     var paymentForm = document.getElementById('paymentForm');
     var paymentTableBody = document.querySelector('#paymentForm table tbody');
@@ -22,7 +21,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     .then(paymentData => {
                         proceedToPayButton.addEventListener('click', function(event) {
                             event.preventDefault(); // Prevent default form submission behavior
-                            calculateTotalPayment(paymentData);
+                            calculateTotalPayment(paymentData, userCompany); // Pass userCompany as parameter
                         });
 
                         populatePaymentTable(employees, paymentData);
@@ -50,21 +49,32 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    function calculateTotalPayment(paymentData) {
-        const tax = 0.1; // Example tax rate, replace with actual tax rate retrieval logic if needed
+    function calculateTotalPayment(paymentData, userCompany) { // Accept userCompany as parameter
+        const tax = parseFloat(localStorage.getItem(`tax_${userCompany.companyName}`)); // Retrieve tax value from local storage
 
+        // Check if tax value is valid
+        if (isNaN(tax) || tax <= 0) {
+            console.error('Tax information is missing or invalid.');
+            return;
+        }
+
+        // Initialize sum variable
         let sum = 0;
 
         document.querySelectorAll('input[type="checkbox"]').forEach((checkbox, index) => {
             if (checkbox.checked) {
                 const paymentPerHourElement = document.getElementById(`paymentPerHour${index}`);
-                if (paymentPerHourElement) {
+                const hoursWorkedElement = document.getElementById(`hoursWorked${index}`);
+
+                if (paymentPerHourElement && hoursWorkedElement) {
                     const paymentPerHour = parseFloat(paymentPerHourElement.value);
-                    sum += paymentPerHour;
+                    const hoursWorked = parseFloat(hoursWorkedElement.value);
+                    sum += paymentPerHour * hoursWorked;
                 }
             }
         });
 
+        // Calculate total including tax
         const totalIncludingTax = sum * (1 + tax);
 
         const totalPaymentValueElement = document.getElementById('totalPaymentValue');
