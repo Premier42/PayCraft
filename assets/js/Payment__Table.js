@@ -1,6 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
     var paymentForm = document.getElementById('paymentForm');
-    var paymentTableBody = document.querySelector('#paymentForm table tbody');
     var proceedToPayButton = document.querySelector('.btn-primary');
 
     // Retrieve user's email from local storage
@@ -10,9 +9,7 @@ document.addEventListener('DOMContentLoaded', function () {
     fetch('../dataset/company.json')
         .then(response => response.json())
         .then(companies => {
-            const userCompany = companies.find(company => company.employerEmail === userEmail);
-
-            if (userCompany) {
+            companies.forEach(userCompany => {
                 const employees = userCompany.employees;
 
                 // Read payment data from JSON
@@ -21,17 +18,19 @@ document.addEventListener('DOMContentLoaded', function () {
                     .then(paymentData => {
                         proceedToPayButton.addEventListener('click', function(event) {
                             event.preventDefault(); // Prevent default form submission behavior
-                            calculateTotalPayment(paymentData, userCompany); // Pass userCompany as parameter
+                            calculateTotalPayment(paymentData, userCompany.taxRate); // Pass tax rate as parameter
                         });
 
-                        populatePaymentTable(employees, paymentData);
+                        populatePaymentTable(paymentForm, employees, paymentData);
                     })
                     .catch(error => console.error('Error fetching payment data:', error));
-            }
+            });
         })
         .catch(error => console.error('Error fetching company data:', error));
 
-    function populatePaymentTable(employees, paymentData) {
+    function populatePaymentTable(paymentForm, employees, paymentData) {
+        const paymentTableBody = paymentForm.querySelector('table tbody');
+        
         employees.forEach(function (employee, index) {
             const paymentInfo = paymentData.find(payment => payment.employeeEmail === employee.email);
 
@@ -49,8 +48,9 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    function calculateTotalPayment(paymentData, userCompany) { // Accept userCompany as parameter
-        const tax = parseFloat(localStorage.getItem(`tax_${userCompany.companyName}`)); // Retrieve tax value from local storage
+    function calculateTotalPayment(paymentData, taxRate) { // Accept tax rate as parameter
+        
+        const tax = parseFloat(taxRate);
 
         // Check if tax value is valid
         if (isNaN(tax) || tax <= 0) {
