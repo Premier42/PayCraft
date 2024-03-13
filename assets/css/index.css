@@ -92,15 +92,6 @@ h4 {
 .navbar li:hover>a {
   color: #16df7e;
 }
-/**
-* Mobile Navigation
-*/
-
-@media (max-width: 991px) {
-.navbar ul {
-}
-}
-
 
 /*--------------------------------------------------------------
 # Hero Section
@@ -264,56 +255,6 @@ section {
 }
 
 /*--------------------------------------------------------------
-# Featured Services
---------------------------------------------------------------*/
-.featured-services {
-  padding: 0;
-}
-
-.featured-services .icon-box {
-  padding: 20px;
-  color: #5f687b;
-  background: #f9f9fa;
-  border-radius: 4px;
-  border: 1px solid #f9f9fa;
-  transition: 0.3s;
-  height: 100%;
-}
-
-.featured-services .icon {
-  margin: 0 0 15px 0;
-}
-
-.featured-services .icon i {
-  color: #16df7e;
-  font-size: 36px;
-}
-
-.featured-services .title {
-  font-weight: 600;
-  margin-bottom: 15px;
-  font-size: 18px;
-}
-
-.featured-services .title a {
-  color: #5f687b;
-  transition: 0.3s;
-}
-
-.featured-services .icon-box:hover {
-  border-color: #eaecef;
-}
-
-.featured-services .icon-box:hover .title a {
-  color: #16df7e;
-}
-
-.featured-services .description {
-  line-height: 24px;
-  font-size: 14px;
-}
-
-/*--------------------------------------------------------------
 # About
 --------------------------------------------------------------*/
 .about .content h3 {
@@ -394,7 +335,7 @@ section {
 /*--------------------------------------------------------------
 # Testimonials
 --------------------------------------------------------------*/
-.testimonials .testimonials-slider {
+.testimonials  {
   overflow: hidden;
 }
 
@@ -425,24 +366,6 @@ section {
   margin: 0 0 0 45px;
 }
 
-.testimonials .testimonial-item .quote-icon-left,
-.testimonials .testimonial-item .quote-icon-right {
-  color: #e4e6ea;
-  font-size: 26px;
-}
-
-.testimonials .testimonial-item .quote-icon-left {
-  display: inline-block;
-  left: -5px;
-  position: relative;
-}
-
-.testimonials .testimonial-item .quote-icon-right {
-  display: inline-block;
-  right: -5px;
-  position: relative;
-  top: 10px;
-}
 
 .testimonials .testimonial-item p {
   font-style: italic;
@@ -455,10 +378,7 @@ section {
   z-index: 1;
 }
 
-.testimonials .swiper-pagination {
-  margin-top: 20px;
-  position: relative;
-}
+
 
 /*--------------------------------------------------------------
 # Cta
