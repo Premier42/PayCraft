@@ -25,7 +25,7 @@
     },
     {
         "name": "Jane Smith",
-        "password": "anotherpassword",
+        "password": "12345",
         "email": "jane@example.com",
         "nid": "0987654321",
         "phoneNumber": "0987654321",
@@ -33,7 +33,7 @@
     },
     {
         "name": "William Smith",
-        "password": "anotherpassword",
+        "password": "12345",
         "email": "Will@example.com",
         "nid": "0987654321",
         "phoneNumber": "0987654321",
